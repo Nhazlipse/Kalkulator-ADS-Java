@@ -12,7 +12,7 @@
         android:columnCount="6">
 
         <Button
-            android:id="@+id/btnClear"
+            android:id="@+id/btnHapus"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:background="@color/black"
@@ -24,7 +24,7 @@
             android:textSize="25sp" />
 
         <Button
-            android:id="@+id/btnBracket"
+            android:id="@+id/btnKurung"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:background="@color/black"
@@ -49,7 +49,7 @@
             android:textColor="@color/orange"
             android:textSize="25sp" />
         <Button
-            android:id="@+id/btnDivision"
+            android:id="@+id/btnBagi"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:background="@color/black"
@@ -96,7 +96,7 @@
             android:textColor="@color/white"
             android:textSize="25sp" />
         <Button
-            android:id="@+id/btnMultiply"
+            android:id="@+id/btnKali"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:background="@color/black"
@@ -190,7 +190,7 @@
             android:textColor="@color/white"
             android:textSize="25sp" />
         <Button
-            android:id="@+id/btnAdd"
+            android:id="@+id/btnTambah"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:background="@color/black"
@@ -226,7 +226,7 @@
             android:textColor="@color/white"
             android:textSize="25sp" />
         <Button
-            android:id="@+id/btnEquals"
+            android:id="@+id/btnHasil"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:background="@color/orange"

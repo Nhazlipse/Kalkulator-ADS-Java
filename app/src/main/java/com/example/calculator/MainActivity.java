@@ -14,8 +14,8 @@ import org.mozilla.javascript.ast.Scope;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnClear, btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7,btn8, btn9, btnAdd, btnMinus, btnMultiply, btnBracket, btnPercent;
-    Button btnDivision, btnDot, btnEquals;
+    Button btnHapus, btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7,btn8, btn9, btnTambah, btnMinus, btnKali, btnKurung, btnPercent;
+    Button btnBagi, btnDot, btnHasil;
     TextView perhitungan, hasil;
     String process;
     Boolean checkBracket = false;
@@ -35,20 +35,20 @@ public class MainActivity extends AppCompatActivity {
         btn7 = findViewById(R.id.btn7);
         btn8 = findViewById(R.id.btn8);
         btn9 = findViewById(R.id.btn9);
-        btnClear = findViewById(R.id.btnClear);
-        btnAdd = findViewById(R.id.btnAdd);
-        btnBracket = findViewById(R.id.btnBracket);
+        btnHapus = findViewById(R.id.btnHapus);
+        btnTambah = findViewById(R.id.btnTambah);
+        btnKurung = findViewById(R.id.btnKurung);
         btnMinus = findViewById(R.id.btnMinus);
-        btnMultiply = findViewById(R.id.btnMultiply);
+        btnKali = findViewById(R.id.btnKali);
         btnPercent = findViewById(R.id.btnPercent);
-        btnDivision = findViewById(R.id.btnDivision);
+        btnBagi = findViewById(R.id.btnBagi);
         btnDot = findViewById(R.id.btnDot);
-        btnEquals = findViewById(R.id.btnEquals);
+        btnHasil = findViewById(R.id.btnHasil);
 
         perhitungan = findViewById(R.id.perhitungan);
         hasil = findViewById(R.id.hasil);
 
-        btnClear.setOnClickListener(new View.OnClickListener() {
+        btnHapus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 perhitungan.setText("");
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        btnTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 process = perhitungan.getText().toString();
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnMultiply.setOnClickListener(new View.OnClickListener() {
+        btnKali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 process = perhitungan.getText().toString();
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnDivision.setOnClickListener(new View.OnClickListener() {
+        btnBagi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 process = perhitungan.getText().toString();
@@ -192,33 +192,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnEquals.setOnClickListener(new View.OnClickListener() {
+        btnHasil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = perhitungan.getText().toString();
+                public void onClick(View v) {
+                    process = perhitungan.getText().toString();
+                    process = process.replaceAll("×", "*");
+                    process = process.replaceAll("%",  "/100");
+                    process = process.replaceAll("÷","/");
 
-                process = process.replaceAll("×", "*");
-                process = process.replaceAll("%",  "/100");
-                process = process.replaceAll("÷","/");
+                    Context rhino = Context.enter();
+                    rhino.setOptimizationLevel(-1);
 
-                Context rhino = Context.enter();
-                rhino.setOptimizationLevel(-1);
+                    String finalResult = "";
 
-                String finalResult = "";
+                    try {
+                        Scriptable scriptable = rhino.initStandardObjects();
+                        finalResult = rhino.evaluateString(scriptable,process,"javascript",1,null).toString();
+                        if (finalResult.contains(".")) { // check if result contains decimal point
+                            double doubleResult = Double.parseDouble(finalResult);
+                            finalResult = String.format("%.2f", doubleResult); // format the result with 2 decimal places
+                        } else {
+                            int intResult = Integer.parseInt(finalResult);
+                            finalResult = String.valueOf(intResult); // convert the result to string
+                        }
+                    } catch (Exception e) {
+                        finalResult="0";
+                    }
+                    hasil.setText(finalResult);
+                });
 
-                try {
-                    Scriptable scriptable = rhino.initStandardObjects();
-                    finalResult = rhino.evaluateString(scriptable,process,"javascript",1,null).toString();
-                }catch (Exception e){
-                    finalResult="0";
-                }
-                hasil.setText(finalResult);
-
-
-            }
-        });
-
-        btnBracket.setOnClickListener(new View.OnClickListener() {
+        btnKurung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (checkBracket){
@@ -233,15 +237,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
-
-
-
-
-
-
     }
 }
