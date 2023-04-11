@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnClear, btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7,btn8, btn9, btnAdd, btnMinus, btnMultiply, btnBracket, btnPercent;
     Button btnDivision, btnDot, btnEquals;
-    TextView tvInput, tvOutput;
+    TextView perhitungan, hasil;
     String process;
     Boolean checkBracket = false;
 
@@ -45,157 +45,157 @@ public class MainActivity extends AppCompatActivity {
         btnDot = findViewById(R.id.btnDot);
         btnEquals = findViewById(R.id.btnEquals);
 
-        tvInput = findViewById(R.id.tvInput);
-        tvOutput = findViewById(R.id.tvOutput);
+        perhitungan = findViewById(R.id.perhitungan);
+        hasil = findViewById(R.id.hasil);
 
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvInput.setText("");
-                tvOutput.setText("");
+                perhitungan.setText("");
+                hasil.setText("");
             }
         });
 
         btn0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "0");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "0");
             }
         });
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "1");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "1");
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "2");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "2");
             }
         });
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "3");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "3");
             }
         });
 
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "4");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "4");
             }
         });
 
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "5");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "5");
             }
         });
 
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "6");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "6");
             }
         });
 
         btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "7");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "7");
             }
         });
 
         btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "8");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "8");
             }
         });
 
         btn9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "9");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "9");
             }
         });
 
         btn0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "0");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "0");
             }
         });
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "+");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "+");
             }
         });
 
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "-");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "-");
             }
         });
 
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "×");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "×");
             }
         });
 
         btnDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "÷");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "÷");
             }
         });
 
         btnDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + ".");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + ".");
             }
         });
 
         btnPercent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
-                tvInput.setText(process + "%");
+                process = perhitungan.getText().toString();
+                perhitungan.setText(process + "%");
             }
         });
 
         btnEquals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = tvInput.getText().toString();
+                process = perhitungan.getText().toString();
 
                 process = process.replaceAll("×", "*");
                 process = process.replaceAll("%",  "/100");
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                 }catch (Exception e){
                     finalResult="0";
                 }
-                tvOutput.setText(finalResult);
+                hasil.setText(finalResult);
 
 
             }
@@ -222,13 +222,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (checkBracket){
-                    process = tvInput.getText().toString();
-                    tvInput.setText(process + ")");
+                    process = perhitungan.getText().toString();
+                    perhitungan.setText(process + ")");
                     checkBracket = false;
                 }
                 else{
-                    process = tvInput.getText().toString();
-                    tvInput.setText(process + "(");
+                    process = perhitungan.getText().toString();
+                    perhitungan.setText(process + "(");
                     checkBracket = true;
                 }
             }
